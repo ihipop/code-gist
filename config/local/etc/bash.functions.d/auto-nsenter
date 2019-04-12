@@ -1,0 +1,5 @@
+function auto-nsenter { 
+	container=$1;
+	shift 1;
+	sudo nsenter -t $(docker inspect -f '{{.State.Pid}}' $container) -n -- "$@"; 
+}
