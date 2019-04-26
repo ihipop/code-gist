@@ -1,5 +1,5 @@
 #!/bin/bash
-function get_script_dir()
+function get_script_dir_qs5ope3dkl03bf7()
 {
     local SOURCE="${BASH_SOURCE[0]}"
     while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
@@ -10,7 +10,6 @@ function get_script_dir()
     local DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
     echo $DIR;
 }
-
-DIR=`get_script_dir`
-source "$DIR/bash.functions.d/"*
+source `get_script_dir_qs5ope3dkl03bf7`"/bash.functions.d/"*
+unset -f  get_script_dir_qs5ope3dkl03bf7
 
