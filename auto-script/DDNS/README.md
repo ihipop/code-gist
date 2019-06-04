@@ -1,7 +1,7 @@
 # Multi ddns updater in Pure Shell
 # Support: 
-- [x] duckdns
-- [x] punyun
+- [x] [DuckDNS](https://www.duckdns.org/)
+- [x] [PubYun (Known as 3322.org)](https://www.pubyun.com/)
 - [ ] more for future
 # Usage
 
