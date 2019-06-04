@@ -6,8 +6,7 @@
 # Usage
 
 ```bash
-wget  https://github.com/ihipop/code-gist/raw/master/auto-script/DDNS/multi-ddns.sh /usr/local/bin/multi-ddns.sh 
-chmod +x /usr/local/bin/multi-ddns.sh
+wget  https://github.com/ihipop/code-gist/raw/master/auto-script/DDNS/multi-ddns.sh  -O /usr/local/bin/multi-ddns.sh && chmod +x /usr/local/bin/multi-ddns.sh
 multi-ddns.sh -h
 ```
 ```
