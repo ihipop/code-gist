@@ -1,15 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 # This is a multi ddns updater written by <ihipop@gmail.com> @ 2019-06-04 18:39:50
 # use -h to get the help
 set -e
 DELAY_SECONDS=0
 
-function function_exists() {
+function_exists() {
     declare -f -F "$1" > /dev/null
     return $?
 }
 
-function show_useage() {
+show_useage() {
     MY=$(basename "$0")
     cat <<EOF
 Usage:  ${MY} [-d] -s duckdns DOMAIN TOKEN [IP]
@@ -20,7 +20,7 @@ Usage:  ${MY} [-d] -s duckdns DOMAIN TOKEN [IP]
 EOF
 }
 
-function ISP_duckdns(){
+ISP_duckdns(){
     DOMAIN=$1
     TOKEN=$2
     IP=$3
@@ -28,7 +28,7 @@ function ISP_duckdns(){
 }
 
 
-function ISP_pubyun(){
+ISP_pubyun(){
     AUTHSTRING=$1
     DOMAIN=$2
     IP=$3
