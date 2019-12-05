@@ -12,8 +12,8 @@ function_exists() {
 show_useage() {
     MY=$(basename "$0")
     cat <<EOF
-Usage:  ${MY} [-d] -s duckdns DOMAIN TOKEN [IP]
-        ${MY} [-d] -s pubyun AUTHSTRING(which is USERNAME:PASSWORD) DOMAIN [IP]
+Usage:  ${MY} [-d] -s duckdns -4 [IPv4] -6 [IPv6] DOMAIN TOKEN 
+        ${MY} [-d] -s pubyun -4 [IPv4] DOMAIN AUTHSTRING(which is USERNAME:PASSWORD)  
 
         -------ARGS-----------
         -d Enable random delay
@@ -23,29 +23,37 @@ EOF
 ISP_duckdns(){
     DOMAIN=$1
     TOKEN=$2
-    IP=$3
-    curl -ssL 'https://www.duckdns.org/update?domains='"${DOMAIN}"'&token='"${TOKEN}"'&verbose=true&ip='"${IP}" -k -o -
+    curl -ssL 'https://www.duckdns.org/update?domains='"${DOMAIN}"'&token='"${TOKEN}"'&verbose=true&ip='"${IPv4}"'&ipv6='"${IPv6}" -k -o -
 }
 
 
 ISP_pubyun(){
-    AUTHSTRING=$1
     DOMAIN=$2
-    IP=$3
-    curl -ssL 'https://'"${AUTHSTRING}"'@members.3322.net/dyndns/update?hostname='"${DOMAIN}"'&myip='"${IP}" -k -o -
+    AUTHSTRING=$1
+    curl -ssL 'https://'"${AUTHSTRING}"'@members.3322.net/dyndns/update?hostname='"${DOMAIN}"'&myip='"${IPv4}" -k -o -
 }
 
 if [ ! "$*" ];then
     show_useage;exit 0 ;
 fi
 
-while getopts ':ds:' OPT; do
+IPv6=''
+IPv4=${IPv6}
+
+
+while getopts ':ds:4:6:' OPT; do
     case $OPT in
         d)
             DELAY_SECONDS=$(shuf -i 1-60 -n 1)
             ;;
         s)
             ISP=$OPTARG
+            ;;
+        4)
+            IPv4=$OPTARG
+            ;;
+        6)
+            IPv6=$OPTARG
             ;;
         ?)
             show_useage;
