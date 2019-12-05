@@ -10,8 +10,8 @@ wget https://github.com/ihipop/code-gist/raw/master/auto-script/DDNS/multi-ddns.
 multi-ddns.sh -h
 ```
 ```
-Usage:  multi-ddns.sh [-d] -s duckdns DOMAIN TOKEN [IP]
-        multi-ddns.sh [-d] -s pubyun AUTHSTRING(which is USERNAME:PASSWORD) DOMAIN [IP]
+Usage:  multi-ddns.sh [-d] -s duckdns -4 [IPv4] -6 [IPv6] DOMAIN TOKEN 
+        multi-ddns.sh [-d] -s pubyun -4 [IPv4] DOMAIN AUTHSTRING(which is USERNAME:PASSWORD)  
 
         -------ARGS-----------
         -d Enable random delay
