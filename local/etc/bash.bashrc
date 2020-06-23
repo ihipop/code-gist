@@ -10,6 +10,12 @@ function get_script_dir_qs5ope3dkl03bf7()
     local DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
     echo $DIR;
 }
-source `get_script_dir_qs5ope3dkl03bf7`"/bash.functions.d/"*
+script_dir=$(get_script_dir_qs5ope3dkl03bf7)
 unset -f  get_script_dir_qs5ope3dkl03bf7
+
+export PATH=$PATH:$(readlink -f "${script_dir}/../bin")
+# echo $PATH;
+source ${script_dir}"/bash.functions.d/"*
+
+unset  script_dir
 
