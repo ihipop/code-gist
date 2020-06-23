@@ -1,1 +1,0 @@
-../../project/openssl/android/der-to-android.sh
